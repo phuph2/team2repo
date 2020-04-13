@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="Team2.controller.App"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="My App">
+				<content>
+					<Text text="{/helloObject/value}" />
+				</content>
+			</Page>
+		</pages>	
+	</App>
+	
+</mvc:View>
