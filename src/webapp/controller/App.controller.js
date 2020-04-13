@@ -9,7 +9,7 @@ sap.ui.define([
 	         // set data model on view
 	         var oData = {
 	            helloObject : {
-	               value : "Hi everybody!"
+	               value : "Hi team 2!"
 	            }
 	         };
 	         var oModel = new JSONModel(oData);
