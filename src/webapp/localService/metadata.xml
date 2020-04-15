@@ -18,11 +18,22 @@
                 <Property Name="BaseUnit" Type="Edm.String" Nullable="false" />
                 <Property Name="Description" Type="Edm.String" Nullable="true" />
             </EntityType>
+            <EntityType Name="Stock">
+                <Key>
+                    <PropertyRef Name="StockCode" />
+                </Key>
+                <Property Name="StockCode" Type="Edm.String" Nullable="false" Unicode="true" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" />
+                <Property Name="Plant" Type="Edm.String" Nullable="true" />
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false"/>
+                <Property Name="Material" Type="Edm.Array"/>
+            </EntityType>
         </Schema>
         <Schema Namespace="ODataWebV2.Warehouse.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityContainer Name="WarehouseEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true"
 					xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
 				<EntitySet Name="Materials" EntityType="Warehouse.Models.Material"/>
+				<EntitySet Name="Stocks" EntityType="Warehouse.Models.Stock"/>
 			</EntityContainer>
 		</Schema>
     </edmx:DataServices>
