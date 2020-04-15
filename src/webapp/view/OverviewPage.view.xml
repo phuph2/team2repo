@@ -32,7 +32,10 @@
 									<Title level="H3" text="{warehouse>Name}"/>
 									<Text text="{warehouse>StorageLocation}"/>
 								</VBox>
-								<ObjectStatus class="sapUiTinyMargin" text="{i18n>StatusOfMaterial}"/>
+								<ObjectStatus class="sapUiTinyMargin" 
+									text="{path: 'warehouse>Material/Amount',
+											formatter: '.formatter.statusText'}"
+									/>
 							</HBox>
 						</CustomListItem>
 					</List>

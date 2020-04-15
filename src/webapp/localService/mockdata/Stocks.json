@@ -6,11 +6,11 @@
     "StorageLocation": "HCM, VN",
     "Material": [{
         "MaterialCode": "MC00001",
-        "Amount": 200,
+        "Amount": 0,
         "StoredDate": "2015-02-18T00:00:00"
         },{
         "MaterialCode": "MC00002",
-        "Amount": 121,
+        "Amount": 0,
         "StoredDate": "2015-02-22T00:00:00"
     	}]
 	},
@@ -45,7 +45,7 @@
         }]
 	},
 	{
-    "StockCode": "SC00001",
+    "StockCode": "SC00004",
     "Name": "Stock X",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
@@ -60,7 +60,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00004",
+    "StockCode": "SC00005",
     "Name": "Stock BH",
     "Plant": "...",
     "StorageLocation": "DN, VN",
@@ -95,7 +95,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00005",
+    "StockCode": "SC00006",
     "Name": "Stock DN",
     "Plant": "...",
     "StorageLocation": "DN, VN",
@@ -122,7 +122,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00006",
+    "StockCode": "SC00007",
     "Name": "Stock TB",
     "Plant": "...",
     "StorageLocation": "TB, VN",
@@ -145,7 +145,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00007",
+    "StockCode": "SC00008",
     "Name": "Stock HN",
     "Plant": "...",
     "StorageLocation": "HN, VN",
@@ -168,7 +168,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00008",
+    "StockCode": "SC00009",
     "Name": "Stock Q2",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
@@ -183,7 +183,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC00009",
+    "StockCode": "SC000010",
     "Name": "Stock Q1",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
@@ -226,7 +226,7 @@
     	}]
 	},
 	{
-    "StockCode": "SC000010",
+    "StockCode": "SC000011",
     "Name": "Stock Q3",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
@@ -249,7 +249,7 @@
         }]
 	},
 	{
-    "StockCode": "SC000011",
+    "StockCode": "SC000012",
     "Name": "Stock Q2",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
