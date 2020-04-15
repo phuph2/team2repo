@@ -5,7 +5,6 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:form="sap.ui.layout.form">
-	<Shell>
 		<App>
 			<Page title="{i18n>headerText}">
 				<List id="list" items="{warehouse>/Materials}" noDataText="{i18n>noDataText}">
@@ -21,6 +20,5 @@
 				</List>
 			</Page>
 		</App>
-	</Shell>
 	
 </mvc:View>
