@@ -1,7 +1,7 @@
 [  
 	{
     "StockCode": "SC00001",
-    "Name": "Stock Q8",
+    "Name": "Cửa Hàng Q8",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
@@ -16,7 +16,7 @@
 	},
 	{
     "StockCode": "SC00002",
-    "Name": "Stock TH",
+    "Name": "Cửa Hàng Thanh Hóa",
     "Plant": "...",
     "StorageLocation": "TH, VN",
     "Material": [{
@@ -35,7 +35,7 @@
 	},
 	{
     "StockCode": "SC00003",
-    "Name": "Stock VT",
+    "Name": "Cửa Hàng Vũng Tàu",
     "Plant": "...",
     "StorageLocation": "VT, VN",
     "Material": [{
@@ -46,7 +46,7 @@
 	},
 	{
     "StockCode": "SC00001",
-    "Name": "Stock X",
+    "Name": "Cửa Hàng Quận 4",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
@@ -61,7 +61,7 @@
 	},
 	{
     "StockCode": "SC00004",
-    "Name": "Stock BH",
+    "Name": "Cửa Hàng Biên Hòa",
     "Plant": "...",
     "StorageLocation": "DN, VN",
     "Material": [{
@@ -96,7 +96,7 @@
 	},
 	{
     "StockCode": "SC00005",
-    "Name": "Stock DN",
+    "Name": "Cửa Hàng Đà Nẵng",
     "Plant": "...",
     "StorageLocation": "DN, VN",
     "Material": [{
@@ -123,7 +123,7 @@
 	},
 	{
     "StockCode": "SC00006",
-    "Name": "Stock TB",
+    "Name": "Cửa Hàng Thái Bình",
     "Plant": "...",
     "StorageLocation": "TB, VN",
     "Material": [{
@@ -146,7 +146,7 @@
 	},
 	{
     "StockCode": "SC00007",
-    "Name": "Stock HN",
+    "Name": "Cửa Hàng Hà Nội",
     "Plant": "...",
     "StorageLocation": "HN, VN",
     "Material": [{
@@ -169,7 +169,7 @@
 	},
 	{
     "StockCode": "SC00008",
-    "Name": "Stock Q2",
+    "Name": "Cửa Hàng Q2",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
@@ -184,7 +184,7 @@
 	},
 	{
     "StockCode": "SC00009",
-    "Name": "Stock Q1",
+    "Name": "Cửa Hàng Q1",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
@@ -227,7 +227,7 @@
 	},
 	{
     "StockCode": "SC000010",
-    "Name": "Stock Q3",
+    "Name": "Cửa Hàng Q3",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
@@ -250,7 +250,7 @@
 	},
 	{
     "StockCode": "SC000011",
-    "Name": "Stock Q2",
+    "Name": "Cửa Hàng Q7",
     "Plant": "...",
     "StorageLocation": "HCM, VN",
     "Material": [{
