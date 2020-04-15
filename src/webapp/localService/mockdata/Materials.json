@@ -1,5 +1,6 @@
-{
-	"MaterialCollection": [{
+
+[
+	{
 		"MaterialCode": "MC00001",
 		"Name": "Iphone X",
 		"Type": "SmartPhone",
@@ -62,5 +63,6 @@
 		"Price": 1800,
 		"BaseUnit": "USD",
 		"Description": "Kích thước: 30.41 x 21.24 x 1.56 cm. Trọng lượng: 1.25kg. CPU: Intel Core i5 1.6GHz dual-core, Turbo Boost lên đến 3.6GHz, 4MB L3 cache"
-	}]
-}
+	}
+]
+
