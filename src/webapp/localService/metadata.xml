@@ -18,9 +18,12 @@
                 <Property Name="BaseUnit" Type="Edm.String" Nullable="false" />
                 <Property Name="Description" Type="Edm.String" Nullable="true" />
             </EntityType>
-            <EntityContainer Name="Warehouses" m:IsDefaultEntityContainer="true">
-                <EntitySet Name="Materials" EntityType="Warehouse.Models.Material" />
-            </EntityContainer>
         </Schema>
+        <Schema Namespace="ODataWebV2.Warehouse.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityContainer Name="WarehouseEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true"
+					xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+				<EntitySet Name="Materials" EntityType="Warehouse.Models.Material"/>
+			</EntityContainer>
+		</Schema>
     </edmx:DataServices>
 </edmx:Edmx>
