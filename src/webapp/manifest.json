@@ -8,6 +8,16 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		}, 
+		"dataSources": {
+			"mainService": {
+				"uri": "/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -28,8 +38,14 @@
 		"dependencies": {
 			"minUI5Version": "1.60",
 			"libs": {
-				"sap.m": {}
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
 			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
 		},
 		"models": {
 			"i18n": {
@@ -37,6 +53,9 @@
 				"settings": {
 					"bundleName": "Team2.i18n.i18n"
 				}
+			},
+			"warehouse": {
+				"dataSource": "mainService"
 			}
 		}
 	}

@@ -1,17 +1,26 @@
 <mvc:View
 	controllerName="Team2.controller.App"
 	xmlns="sap.m"
+	displayBlock="true"
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:form="sap.ui.layout.form">
-	<App>
-		<pages>
-			<Page title="My App">
-				<content>
-					<Text text="{/helloObject/value}" />
-				</content>
+	<Shell>
+		<App>
+			<Page title="{i18n>headerText}">
+				<List id="list" items="{warehouse>/Materials}" noDataText="{i18n>noDataText}">
+					<items>
+						<ObjectListItem
+						number="{warehouse>Price}"
+							title="{warehouse>Name}">
+							<attributes>
+								<ObjectAttribute text="{warehouse>Description}"/>
+							</attributes>
+						</ObjectListItem>
+					</items>
+				</List>
 			</Page>
-		</pages>	
-	</App>
+		</App>
+	</Shell>
 	
 </mvc:View>

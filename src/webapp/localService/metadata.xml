@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema Namespace="Warehouse.Models"
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+            <EntityType Name="Material">
+                <Key>
+                    <PropertyRef Name="MaterialCode" />
+                </Key>
+                <Property Name="MaterialCode" Type="Edm.String" Nullable="false" Unicode="true" />
+                <Property Name="Name" Type="Edm.String" Nullable="false" />
+                <Property Name="Type" Type="Edm.String" Nullable="true" />
+                <Property Name="Price" Type="Edm.Int32" Precision="19" Scale="4"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" />
+                <Property Name="Description" Type="Edm.String" Nullable="true" />
+            </EntityType>
+            <EntityContainer Name="Warehouses" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Materials" EntityType="Warehouse.Models.Material" />
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
