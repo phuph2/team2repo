@@ -33,7 +33,7 @@
 									<Text text="{warehouse>StorageLocation}"/>
 								</VBox>
 								<ObjectStatus class="sapUiTinyMargin" 
-									text="{path: 'warehouse>Material/Amount',
+									text="{path: 'warehouse>Material',
 											formatter: '.formatter.statusText'}"
 									/>
 							</HBox>
