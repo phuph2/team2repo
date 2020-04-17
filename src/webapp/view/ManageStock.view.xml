@@ -14,6 +14,10 @@
 							<ToolbarSpacer />
 							<SearchField id="searchField" search=".onSearchTable" width="50%"/>
 							<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
+							<Button
+								tooltip="View Filter Settings"
+								icon="sap-icon://filter"
+								press="handleViewSettingsDialogPress" />
 						</Toolbar>
 					</headerToolbar>
 					<columns>
