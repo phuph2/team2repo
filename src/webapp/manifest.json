@@ -30,7 +30,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Team2.view.AddMaterial",
+			"viewName": "Team2.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -38,14 +38,9 @@
 		"dependencies": {
 			"minUI5Version": "1.60",
 			"libs": {
-				"sap.ui.core": {},
 				"sap.m": {},
-				"sap.ui.layout": {}
+				"sap.ui.core": {}
 			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
 		},
 		"models": {
 			"i18n": {
@@ -56,6 +51,69 @@
 			},
 			"warehouse": {
 				"dataSource": "mainService"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "Team2.view",
+				"controlId": "app",
+				"transition": "slide",
+				"controlAggregation": "pages",
+				 "bypassed": {
+	               "target": "notFound"
+	            },
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "overviewpage",
+					"target": "overview"
+				},
+				{
+					"pattern": "materials",
+					"name": "manageMaterial",
+					"target": "materials"
+				},
+				{
+					"pattern": "stocks",
+					"name": "manageStock",
+					"target": "stocks"
+				},
+				{
+					"pattern": "",
+					"name": "addMaterial",
+					"target": "add"
+				}
+			],
+			"targets": {
+				"overview": {
+					"viewId": "overviewpage",
+					"viewName": "OverviewPage",
+					"viewLevel" : 1
+				},
+				"materials": {
+					"viewId": "managematerial",
+					"viewName": "ManageMaterial",
+					"viewLevel" : 2
+				},
+				"stocks": {
+					"viewId": "managestock",
+					"viewName": "ManageStock",
+					"viewLevel" : 2
+				},
+				"add":{
+					"viewId": "addmaterial",
+					"viewName": "AddMaterial",
+					"viewLevel": 2
+				},
+	            "notFound": {
+	               "viewId": "notFound",
+	               "viewName": "NotFound",
+	               "transition": "show"
+	            }
 			}
 		}
 	}
