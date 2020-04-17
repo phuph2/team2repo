@@ -1,16 +1,19 @@
 <mvc:View
 	controllerName="Team2.controller.ManageMaterial"
-	height="100%"
 	xmlns="sap.m"
 	displayBlock="true"
-	xmlns:l="sap.ui.layout"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:form="sap.ui.layout.form">
+	xmlns:mvc="sap.ui.core.mvc">
 		<Page
 		title="{i18n>headerManageMaterial}">
-		
-				<Table id="materialsTable"
-					items="{warehouse>/Materials}">
+				<Table 
+					class="sapUiResponsiveMargin"
+					width="auto"
+					id="materialsTable"
+					items="{
+					path : 'warehouse>/Materials',
+						sorter : {
+							path : 'Name'
+			}}">
 					<headerToolbar>
 						<Toolbar>
 							<ToolbarSpacer />

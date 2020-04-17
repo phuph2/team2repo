@@ -1,0 +1,9 @@
+<mvc:View
+	controllerName="Team2.controller.AddMaterial"
+	height="100%"
+	xmlns="sap.m"
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form">
+</mvc:View>
