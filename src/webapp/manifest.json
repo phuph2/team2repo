@@ -30,7 +30,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Team2.view.OverviewPage",
+			"viewName": "Team2.view.AddMaterial",
 			"type": "XML",
 			"async": true,
 			"id": "app"
