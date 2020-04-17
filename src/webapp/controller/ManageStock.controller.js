@@ -44,12 +44,12 @@ sap.ui.define([
 					oColumn=this.getView().byId("StorageLocation");
 					oColumn.setVisible(false);
 				}
-				else if (selectedItems[i].getText().includes("Material1")){
-					oColumn=this.getView().byId("Material1");
+				else if (selectedItems[i].getText().includes("Material")){
+					oColumn=this.getView().byId("Material");
 					oColumn.setVisible(false);
 				}
-				else if (selectedItems[i].getText().includes("Material2")){
-					oColumn=this.getView().byId("Material2");
+				else if (selectedItems[i].getText().includes("Amount")){
+					oColumn=this.getView().byId("Amount");
 					oColumn.setVisible(false);
 				}
 			}
@@ -60,8 +60,8 @@ sap.ui.define([
 			this.getView().byId("Name").setVisible(true);
 			this.getView().byId("Plant").setVisible(true);
 			this.getView().byId("StorageLocation").setVisible(true);
-			this.getView().byId("Material1").setVisible(true);
-			this.getView().byId("Material2").setVisible(true);
+			this.getView().byId("Material").setVisible(true);
+			this.getView().byId("Amount").setVisible(true);
 		},
     	onSearchTable: function (oEvent) {
     		// build filter array
