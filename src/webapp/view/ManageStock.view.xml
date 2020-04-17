@@ -15,6 +15,10 @@
 						<core:Item key="Amount" text="Amount"/>
 					</MultiComboBox>
 					<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
+					<Button
+								tooltip="View Filter Settings"
+								icon="sap-icon://filter"
+								press="handleViewSettingsDialogPress" />
 				</Toolbar>
 			</headerToolbar>
 			<columns>
@@ -24,6 +28,8 @@
 				<Column id="StorageLocation"><Text text="Storage Location"/></Column>
 				<Column id="Material"><Text text="Material"/></Column>
 				<Column id="Amount"><Text text="Amount"/></Column>
+				<Column id="StoredDate"><Text text="Stored date"/></Column>
+				<Column id="Status"><Text text="Status"/></Column>
 			</columns>
 			<items>
 				<ColumnListItem>

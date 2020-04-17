@@ -3,27 +3,26 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
+	"sap/ui/core/Fragment",
 	"sap/ui/core/UIComponent",
+	"sap/m/ViewSettingsDialog",
+	"sap/m/ViewSettingsItem",
+	'sap/m/MessageToast',
 	"../model/formatter",
-	'sap/ui/core/Fragment',
-	'sap/m/MessageToast'
-], function (BaseController, JSONModel, Filter, FilterOperator, UIComponent, formatter, Fragment, MessageToast) {
+], function (BaseController, JSONModel, Filter, FilterOperator, Fragment, UIComponent, ViewSettingsDialog, ViewSettingsItem, MessageToast, formatter) {
 	"use strict";
 
 	return BaseController.extend("Team2.controller.ManageStock", {
 		formatter: formatter,
-		//filterResetValue: 50,
-		//filterPreviousValue: 50,
 		fromDate: '',
 		toDate: '',
 		
-		onInit : function () {
-    	},
-		
-    	onAddButtonPressed: function () {
-    		
-    	},
-    	handleSelectionFinish: function (oEvent) {
+        onInit: function () {
+			var _oODataModel = this.getOwnerComponent().getModel();
+			var oModel = new sap.ui.model.odata.ODataModel("/", true);
+
+		},
+		handleSelectionFinish: function (oEvent) {
 			this._resetColumnStates();
 			var oColumn ;//= this.byId("stocksTable");
 			var selectedItems = oEvent.getParameter("selectedItems");
@@ -44,12 +43,12 @@ sap.ui.define([
 					oColumn=this.getView().byId("StorageLocation");
 					oColumn.setVisible(false);
 				}
-				else if (selectedItems[i].getText().includes("Material")){
-					oColumn=this.getView().byId("Material");
+				else if (selectedItems[i].getText().includes("Material1")){
+					oColumn=this.getView().byId("Material1");
 					oColumn.setVisible(false);
 				}
-				else if (selectedItems[i].getText().includes("Amount")){
-					oColumn=this.getView().byId("Amount");
+				else if (selectedItems[i].getText().includes("Material2")){
+					oColumn=this.getView().byId("Material2");
 					oColumn.setVisible(false);
 				}
 			}
@@ -60,22 +59,25 @@ sap.ui.define([
 			this.getView().byId("Name").setVisible(true);
 			this.getView().byId("Plant").setVisible(true);
 			this.getView().byId("StorageLocation").setVisible(true);
-			this.getView().byId("Material").setVisible(true);
-			this.getView().byId("Amount").setVisible(true);
+			this.getView().byId("Material1").setVisible(true);
+			this.getView().byId("Material2").setVisible(true);
 		},
-    	onSearchTable: function (oEvent) {
-    		// build filter array
+		onAddButtonPressed: function () {},
+
+		onSearchTable: function (oEvent) {
+			// build filter array
 			var aFilter = [];
 			var sQuery = oEvent.getParameter("query");
 			if (sQuery) {
 				aFilter.push(new Filter("Name", FilterOperator.Contains, sQuery));
 			}
 
-			// filter binding
-			var oTable = this.byId("stocksTable");
-			var oBinding = oTable.getBinding("items");
-			oBinding.filter(aFilter);
-    	},
+			// // filter binding
+			// var oTable = this.byId("stocksTable");
+			// var oBinding = oTable.getBinding("items");
+			// oBinding.filter(aFilter);
+			MessageToast.show("From date " + this.fromDate + " To date is " + this.toDate);
+		},
 		
 		onExit : function () {
 			if (this._oDialog) {
@@ -101,12 +103,12 @@ sap.ui.define([
 				this._oDialog.open();
 			}
 		},
-		
+
 		onFromChange: function (oEvent) {
 			this.fromDate = oEvent.getParameter("value");
-			
+
 		},
-		
+
 		onToChange: function (oEvent) {
 			this.toDate = oEvent.getParameter("value");
 		},
@@ -117,7 +119,7 @@ sap.ui.define([
 			// if (this.fromDate) {
 			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.GE , this.fromDate));
 			// }
-			
+
 			// if (this.toDate) {
 			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.LE , this.toDate));
 			// }
