@@ -22,7 +22,9 @@
 						<Column><Text text="Plant"/></Column>
 						<Column><Text text="Storage Location"/></Column>
 						<Column><Text text="Material"/></Column>
-						<Column><Text text="Material"/></Column>
+						<Column><Text text="Amount"/></Column>
+						<Column><Text text="Stored Date"/></Column>
+						<Column><Text text="Status"/></Column>
 					</columns>
 					<items>
 						<ColumnListItem>
@@ -31,20 +33,21 @@
 								<Text text="{warehouse>Name}"/>
 								<Text text="{warehouse>Plant}"/>
 								<Text text="{warehouse>StorageLocation}"/>
-								<Text text="{warehouse>Material/0/MaterialCode}"/>
-								<Table 
-									items="{path : 'warehouse>Material', templateShareable:false}">
-									<columns>
-										<Column></Column>
-									</columns>
-									<items>
-										<ColumnListItem>
-											<cells>
-												<Text text="{warehouse>MaterialCode}"/>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
+								<Text text="{path: 'warehouse>Material',
+											formatter: '.formatter.displayMaterialName'}"/>
+								<Text text="{path: 'warehouse>Material',
+											formatter: '.formatter.displayMaterialAmount'}"/>
+								<Text text="{path: 'warehouse>Material',
+											formatter: '.formatter.displayStoredDate'}"/>
+								<ObjectStatus
+									text="{
+										path: 'warehouse>Material',
+										formatter: '.formatter.statusText'
+									}"
+									state="{
+										path: 'warehouse>Material',
+										formatter: '.formatter.statusState'
+									}" />
 							</cells>
 						</ColumnListItem>
 					</items>

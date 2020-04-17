@@ -3,11 +3,14 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"sap/ui/core/UIComponent"
-], function (BaseController, JSONModel, Filter, FilterOperator, UIComponent) {
+	"sap/ui/core/UIComponent",
+	"../model/formatter",
+], function (BaseController, JSONModel, Filter, FilterOperator, UIComponent, formatter) {
 	"use strict";
 	
 	return BaseController.extend("Team2.controller.ManageStock", {
+		formatter: formatter,
+		
 		onInit : function () {
 	        var _oODataModel = this.getOwnerComponent().getModel();
 			var oModel = new sap.ui.model.odata.ODataModel("/", true);

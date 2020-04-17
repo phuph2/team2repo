@@ -12,7 +12,7 @@ sap.ui.define([
     	},
     	
     	onAddButtonPressed: function () {
-    		
+    		this.getRouter().navTo("addMaterial");
     	},
     	
     	onSearchTable: function (oEvent) {

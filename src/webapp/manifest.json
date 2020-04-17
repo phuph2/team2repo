@@ -81,6 +81,11 @@
 					"pattern": "stocks",
 					"name": "manageStock",
 					"target": "stocks"
+				},
+				{
+					"pattern": "addM",
+					"name": "addMaterial",
+					"target": "addM"
 				}
 			],
 			"targets": {
@@ -98,6 +103,11 @@
 					"viewId": "managestock",
 					"viewName": "ManageStock",
 					"viewLevel" : 2
+				},
+				"addM": {
+					"viewId": "addMaterial",
+					"viewName": "AddMaterial",
+					"viewLevel" : 3
 				},
 	            "notFound": {
 	               "viewId": "notFound",
