@@ -3,20 +3,27 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"sap/ui/core/Fragment",
 	"sap/ui/core/UIComponent",
-	"sap/m/ViewSettingsDialog",
-	"sap/m/ViewSettingsItem"
-], function (BaseController, JSONModel, Filter, FilterOperator, Fragment, UIComponent, ViewSettingsDialog, ViewSettingsItem) {
+	"../model/formatter",
+	'sap/ui/core/Fragment',
+	'sap/m/MessageToast'
+], function (BaseController, JSONModel, Filter, FilterOperator, UIComponent, formatter, Fragment, MessageToast) {
 	"use strict";
 
 	return BaseController.extend("Team2.controller.ManageStock", {
-		onInit: function () {
-			var _oODataModel = this.getOwnerComponent().getModel();
-			var oModel = new sap.ui.model.odata.ODataModel("/", true);
-
-		},
-		handleSelectionFinish: function (oEvent) {
+		formatter: formatter,
+		//filterResetValue: 50,
+		//filterPreviousValue: 50,
+		fromDate: '',
+		toDate: '',
+		
+		onInit : function () {
+    	},
+		
+    	onAddButtonPressed: function () {
+    		
+    	},
+    	handleSelectionFinish: function (oEvent) {
 			this._resetColumnStates();
 			var oColumn ;//= this.byId("stocksTable");
 			var selectedItems = oEvent.getParameter("selectedItems");
@@ -56,10 +63,8 @@ sap.ui.define([
 			this.getView().byId("Material1").setVisible(true);
 			this.getView().byId("Material2").setVisible(true);
 		},
-		onAddButtonPressed: function () {},
-
-		onSearchTable: function (oEvent) {
-			// build filter array
+    	onSearchTable: function (oEvent) {
+    		// build filter array
 			var aFilter = [];
 			var sQuery = oEvent.getParameter("query");
 			if (sQuery) {
@@ -70,6 +75,66 @@ sap.ui.define([
 			var oTable = this.byId("stocksTable");
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(aFilter);
+    	},
+		
+		onExit : function () {
+			if (this._oDialog) {
+				this._oDialog.destroy();
+			}
+		},
+
+		handleViewSettingsDialogPress: function () {
+			if (!this._oDialog) {
+				Fragment.load({
+					name: "Team2.view.FilterDialog",
+					controller: this
+				}).then(function(oDialog){
+					this._oDialog = oDialog;
+					// Set initial and reset value for Slider in custom control
+					//var oSlider = this._oDialog.getFilterItems()[0].getCustomControl();
+					//oSlider.setValue(this.filterResetValue);
+					this._oDialog.setModel(this.getView().getModel());
+					this._oDialog.open();
+				}.bind(this));
+			} else {
+				this._oDialog.setModel(this.getView().getModel());
+				this._oDialog.open();
+			}
+		},
+		
+		onFromChange: function (oEvent) {
+			this.fromDate = oEvent.getParameter("value");
+			
+		},
+		
+		onToChange: function (oEvent) {
+			this.toDate = oEvent.getParameter("value");
+		},
+
+		handleConfirm: function (oEvent) {
+			// build filter array
+			// var aFilter = [];
+			// if (this.fromDate) {
+			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.GE , this.fromDate));
+			// }
+			
+			// if (this.toDate) {
+			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.LE , this.toDate));
+			// }
+
+			// // filter binding
+			// var oTable = this.byId("stocksTable");
+			// var oBinding = oTable.getBinding("items");
+			// oBinding.filter(aFilter);
+			MessageToast.show("From date " + this.fromDate + " To date is " + this.toDate);
+		},
+
+		handleCancel: function () {
+		},
+
+		handleResetFilters: function () {
+			sap.ui.getCore().byId("fromDate").setValue('');
+			sap.ui.getCore().byId("toDate").setValue('');
 		}
 
 	});
