@@ -13,6 +13,8 @@
 						<core:Item key="Storage Location" text="Storage Location"/>
 						<core:Item key="Material" text="Material"/>
 						<core:Item key="Amount" text="Amount"/>
+						<core:Item key="StoredDate" text="StoredDate"/>
+						<core:Item key="Status" text="Status"/>
 					</MultiComboBox>
 					<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
 					<Button
