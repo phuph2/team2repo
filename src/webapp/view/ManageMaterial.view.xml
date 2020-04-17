@@ -1,0 +1,43 @@
+<mvc:View
+	controllerName="Team2.controller.ManageMaterial"
+	height="100%"
+	xmlns="sap.m"
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form">
+		<Page
+		title="{i18n>headerManageMaterial}">
+		
+				<Table id="materialsTable"
+					items="{warehouse>/Materials}">
+					<headerToolbar>
+						<Toolbar>
+							<ToolbarSpacer />
+							<SearchField id="searchField" search=".onSearchTable" width="50%"/>
+							<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Material"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="Code"/></Column>
+						<Column><Text text="Name"/></Column>
+						<Column><Text text="Type"/></Column>
+						<Column><Text text="Price"/></Column>
+						<Column><Text text="Base Unit"/></Column>
+						<Column><Text text="Description"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{warehouse>MaterialCode}"/>
+								<Text text="{warehouse>Name}"/>
+								<Text text="{warehouse>Type}"/>
+								<Text text="{warehouse>Price}"/>
+								<Text text="{warehouse>BaseUnit}"/>
+								<Text text="{warehouse>Description}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+	</Page>
+</mvc:View>

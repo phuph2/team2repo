@@ -1,0 +1,53 @@
+<mvc:View
+	controllerName="Team2.controller.ManageStock"
+	xmlns="sap.m"
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form">
+	<Page
+		title="{i18n>headerManageStock}">
+		<Table id="stocksTable"
+					items="{warehouse>/Stocks}">
+					<headerToolbar>
+						<Toolbar>
+							<ToolbarSpacer />
+							<SearchField id="searchField" search=".onSearchTable" width="50%"/>
+							<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="Code"/></Column>
+						<Column><Text text="Name"/></Column>
+						<Column><Text text="Plant"/></Column>
+						<Column><Text text="Storage Location"/></Column>
+						<Column><Text text="Material"/></Column>
+						<Column><Text text="Material"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{warehouse>StockCode}"/>
+								<Text text="{warehouse>Name}"/>
+								<Text text="{warehouse>Plant}"/>
+								<Text text="{warehouse>StorageLocation}"/>
+								<Text text="{warehouse>Material/0/MaterialCode}"/>
+								<Table 
+									items="{path : 'warehouse>Material', templateShareable:false}">
+									<columns>
+										<Column></Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{warehouse>MaterialCode}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+	</Page>
+</mvc:View>
