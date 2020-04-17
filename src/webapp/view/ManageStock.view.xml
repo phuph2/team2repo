@@ -4,6 +4,8 @@
 		<Table id="stocksTable" items="{warehouse>/Stocks}">
 			<headerToolbar>
 				<Toolbar>
+					<ToolbarSpacer/>
+					<SearchField id="searchField" search=".onSearchTable" width="30%"/>
 					<MultiComboBox placeholder="Select Hide Column" selectionFinish="handleSelectionFinish" width="20%">
 						<core:Item key="Code" text="Code"/>
 						<core:Item key="Name" text="Name"/>
@@ -12,8 +14,6 @@
 						<core:Item key="Material" text="Material"/>
 						<core:Item key="Amount" text="Amount"/>
 					</MultiComboBox>
-					<ToolbarSpacer/>
-					<SearchField id="searchField" search=".onSearchTable" width="30%"/>
 					<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
 				</Toolbar>
 			</headerToolbar>
