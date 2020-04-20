@@ -8,7 +8,7 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
-		}, 
+		},
 		"dataSources": {
 			"mainService": {
 				"uri": "/",
@@ -61,72 +61,64 @@
 				"controlId": "app",
 				"transition": "slide",
 				"controlAggregation": "pages",
-				 "bypassed": {
-	               "target": "notFound"
-	            },
+				"bypassed": {
+					"target": "notFound"
+				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "overviewpage",
-					"target": "overview"
-				},
-				{
-					"pattern": "materials",
-					"name": "manageMaterial",
-					"target": "materials"
-				},
-				{
-					"pattern": "stocks",
-					"name": "manageStock",
-					"target": "stocks"
-				},
-				{
-
-					"pattern": "",
-					"name": "addMaterial",
-					"target": "add"
-
-					"pattern": "addM",
-					"name": "addMaterial",
-					"target": "addM"
-
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "overviewpage",
+				"target": "overview"
+			}, {
+				"pattern": "materials",
+				"name": "manageMaterial",
+				"target": "materials"
+			}, {
+				"pattern": "stocks",
+				"name": "manageStock",
+				"target": "stocks"
+			}, {
+				"pattern": "addMaterial",
+				"name": "addMaterial",
+				"target": "add"
+			}, {
+				"pattern": "addM",
+				"name": "addMaterial",
+				"target": "addM"
+			}],
 			"targets": {
 				"overview": {
 					"viewId": "overviewpage",
 					"viewName": "OverviewPage",
-					"viewLevel" : 1
+					"viewLevel": 1
 				},
 				"materials": {
 					"viewId": "managematerial",
 					"viewName": "ManageMaterial",
-					"viewLevel" : 2
+					"viewLevel": 2
 				},
 				"stocks": {
 					"viewId": "managestock",
 					"viewName": "ManageStock",
-					"viewLevel" : 2
+					"viewLevel": 2
 				},
 
-				"add":{
+				"add": {
 					"viewId": "addmaterial",
 					"viewName": "AddMaterial",
 					"viewLevel": 2
-
+				},
 				"addM": {
 					"viewId": "addMaterial",
 					"viewName": "AddMaterial",
-					"viewLevel" : 3
-
-				},
-	            "notFound": {
-	               "viewId": "notFound",
-	               "viewName": "NotFound",
-	               "transition": "show"
-	            }
+					"viewLevel": 3
+				}
+			},
+			"notFound": {
+				"viewId": "notFound",
+				"viewName": "NotFound",
+				"transition": "show"
 			}
 		}
 	}
