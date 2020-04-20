@@ -1,9 +1,158 @@
-<mvc:View
-	controllerName="Team2.controller.AddMaterial"
-	height="100%"
-	xmlns="sap.m"
-	displayBlock="true"
-	xmlns:l="sap.ui.layout"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:form="sap.ui.layout.form">
-</mvc:View>
+
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:uxap="sap.uxap">
+	<uxap:ObjectPageLayout
+	id="objectPageLayout"
+	alwaysShowContentHeader="true"
+	showFooter="true">
+	<uxap:headerTitle>
+		<uxap:ObjectPageDynamicHeaderTitle>
+			<uxap:heading>
+				<Title text="{i18n>addMaterialTitle}"/>
+			</uxap:heading>
+		</uxap:ObjectPageDynamicHeaderTitle>
+	</uxap:headerTitle>
+	<uxap:sections>
+		<uxap:ObjectPageSection id="create" title="{i18n>titleSectionAddNew}">
+			<uxap:subSections>
+				<uxap:ObjectPageSubSection>
+					<uxap:blocks>
+						<form:SimpleForm editable = "true">
+							<Label text="Code" labelFor="fieldCode"/>
+							<Input id="fieldCode" required="true" width="50%"
+							value="{
+								path: 'MaterialCode',
+								type: 'sap.ui.model.type.String',
+								constraints: {
+											search: '^HT-[0-9]{4}$'
+								}
+							}"/>
+							<Label text="Name" labelFor="fieldName"/>
+							<Input id="fieldName" required="true" width="50%"/>
+							<Label text="Type" labelFor="fieldType"/>
+							<ComboBox id="cboType" required="true" width="50%"
+								items="{path: 'warehouse>/Materials', sorter: {path: 'Type'}}">
+									<core:Item key="{warehouse>Type}" text="{warehouse>Type}"/>
+								</ComboBox>
+							<Label text="Price" labelFor="fieldPrice"/>
+							<Input id="fieldPrice" required="true" width="50%"/>
+							<Label text="BaseUnit" labelFor="fieldBaseUnit"/>
+							<ComboBox id="base" required="false" width="50%"
+								items="{ path: 'warehouse>/Materials', sorter: {path: 'BaseUnit'}}">
+									<core:Item key="{warehouse>BaseUnit}" text="{warehouse>BaseUnit}"/>
+							</ComboBox>
+							<Label text="Description" labelFor="fieldDescription"/>
+							<TextArea id="fieldDescription" required="false" width="50%"/>
+						</form:SimpleForm>
+					</uxap:blocks>
+				</uxap:ObjectPageSubSection>
+			</uxap:subSections>
+		</uxap:ObjectPageSection>
+	</uxap:sections>
+	<uxap:footer>
+		<OverflowToolbar>
+			<Button 
+			id="messagePopoverButton"
+			icon="sap-icon://message-popup"
+			type="Emphasized"
+			text="{=${message>/}.length}"
+			visible="{= !!${message>/}.length}"
+			press=".onOpenMessages"/>
+			<ToolbarSpacer/>
+			<Button id="buttonSubmit"
+			type="Emphasized"
+			text="Submit"
+			press="onSubmit"/>
+			<Button id="buttonCancel"
+			type="Emphasized"
+			text="Cancel"
+			press="onCancel"/>
+		</OverflowToolbar>
+	</uxap:footer>
+	<uxap:dependents>
+			<MessagePopover
+				id="messages"
+				items="{message>/}">
+				<MessageItem
+					type="{message>type}"
+					title="{message>message}"
+					subtitle="message>additionalText"
+					description="{message>description}"/>
+				
+			</MessagePopover>
+		</uxap:dependents>
+	</uxap:ObjectPageLayout>
+	
+	
+	
+	
+	
+	<!--<App>-->
+	<!--	<pages>-->
+	<!--		<Page title="Create Material">-->
+	<!--			<content>-->
+	<!--				<form:SimpleForm editable="true">-->
+	<!--					<Label text="Code" labelFor="fieldCode"/>-->
+	<!--					<Input id="code" required="true" width="50%"/>-->
+	<!--					<Label text="Name" labelFor="fieldName"/>-->
+	<!--					<Input id="name" required="true" width="50%"/>-->
+						
+	<!--					<Label text="Type" labelFor="fieldType"/>-->
+	<!--					<ComboBox required="true" width="50%"-->
+	<!--					items="{path: 'warehouse>/Materials', sorter: {path: 'Type'}}">-->
+	<!--						<core:Item key="{warehouse>Type}" text="{warehouse>Type}"/>-->
+	<!--					</ComboBox>-->
+						
+	<!--					<Label text="Price" labelFor="fieldPrice"/>-->
+	<!--					<Input id="price" required="true" width="50%"/>-->
+						
+	<!--					<Label text="Base Unit" labelFor="fieldBase"/>-->
+						<!--<ComboBox id="base" required="false" width="50%"-->
+						<!--items="{ path: 'warehouse>/Materials', sorter: {path: 'BaseUnit'}}">-->
+						<!--	<core:Item key="{warehouse>BaseUnit}" text="{warehouse>	BaseUnit}"/>-->
+						<!--</ComboBox>-->
+						
+	<!--					<Label text="Description" labelFor="fieldDescription"/>-->
+	<!--					<TextArea id="description" required="false" width="50%"/>-->
+	<!--				</form:SimpleForm>-->
+	<!--				<ToolbarSpacer/>-->
+	<!--				<Button text="Submit" press="onSubmit"/>-->
+	<!--				<Button text="Cancel" press="onCancel"/>-->
+	<!--			</content>-->
+	<!--		</Page>-->
+	<!--	</pages>-->
+	<!--</App>-->
+	<!--<semantic:FullscreenPage id="page" title="{i18n>addMaterialTitle}" showNavButton="true">-->
+	<!--	<semantic:content>-->
+	<!--		<smartForm:SmartForm id="form" editable="false" title="{i18n>formTitle}" class="sapUiResponsiveMargin">-->
+	<!--				<smartForm:Group id="formGroup" label="{i18n>formGroupLabel}">-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="codeField" value="MaterialCode"/>-->
+	<!--				</smartForm:GroupElement>-->
+	<!--	xmlns:smartField="sap.ui.comp.smartfield" -->
+	<!--xmlns:smartForm="sap.ui.comp.smartform"-->
+	<!--xmlns:semantic="sap.m.semantic"-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="nameField" value="Name"/>-->
+	<!--				</smartForm:GroupElement>-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="typeField" value="Type"/>-->
+	<!--				</smartForm:GroupElement>-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="priceField" value="Price"/>-->
+	<!--				</smartForm:GroupElement>	-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="baseField" value="BaseUnit"/>-->
+	<!--				</smartForm:GroupElement>	-->
+	<!--				<smartForm:GroupElement>-->
+	<!--					<smartField:SmartField id="descriptionField" value="Description"/>-->
+	<!--				</smartForm:GroupElement>-->
+	<!--			</smartForm:Group>-->
+	<!--		</smartForm:SmartForm>-->
+	<!--	</semantic:content>-->
+	<!--	<semantic:saveAction>-->
+	<!--		<semantic:SaveAction id="save" press="onSave"/>-->
+	<!--	</semantic:saveAction>-->
+	<!--	<semantic:cancelAction>-->
+	<!--		<semantic:CancelAction id="cancel" press="onCancel"/>-->
+	<!--	</semantic:cancelAction>-->
+	<!--</semantic:FullscreenPage>-->
