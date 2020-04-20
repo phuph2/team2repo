@@ -126,26 +126,20 @@ sap.ui.define([
 		handleConfirm: function (oEvent) {
 			// build filter array
 			var aFilter =[]; 
-			// if (this.fromDate) {
-			// 	aFilter.push(new Filter("Material", FilterOperator.Contains, "material", new Filter({
-			// 		path: "material/StoredDate",
-			// 		operator: FilterOperator.GT,
-			// 		value1: this.fromDate
-			// 	})
-			// 	));
-			// }
-			// if (this.toDate) {
-			aFilter.push(new Filter("StoredDate", FilterOperator.BT, this.fromDate, this.toDate));
-			// }
-			// if(this.fromDate && this.toDate)
-			// 	aFilter.push(new Filter("Material", FilterOperator.All, "StoredDate", this.fromDate, this.toDate));
-			// 	aFilter.push(new Filter("Material", FilterOperator.Contains, "Material", new Filter({
-			// 		path: "Material/StoredDate",
-			// 		operator: FilterOperator.BT,
-			// 		value1: this.fromDate,
-			// 		value2: this.toDate
-			// 	})
-			// 	));
+			if (this.fromDate) {
+				aFilter.push(new Filter("StoredDate", FilterOperator.GE, this.fromDate));
+			}
+			else if (this.toDate) {
+				aFilter.push(new Filter("StoredDate", FilterOperator.LE, this.fromDate, this.toDate));
+			}
+			else if(this.fromDate && this.toDate){
+				if(this.fromDate === this.toDate){
+					aFilter.push(new Filter("StoredDate", FilterOperator.Contains, this.fromDate));
+				}
+				else{
+					aFilter.push(new Filter("StoredDate", FilterOperator.BT, this.fromDate, this.toDate));
+				}
+			}
 			// filter binding
 			var oTable = this.byId("stocksTable");
 			var oBinding = oTable.getBinding("items");
