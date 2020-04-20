@@ -1,0 +1,53 @@
+<mvc:View controllerName="Team2.controller.ManageStock" xmlns="sap.m" displayBlock="true" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form">
+	<Page title="{i18n>headerManageStock}">
+		<Table id="stocksTable" items="{warehouse>/Stocks}">
+			<headerToolbar>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<SearchField id="searchField" search=".onSearchTable" width="30%"/>
+					<MultiComboBox placeholder="Select Hide Column" selectionFinish="handleSelectionFinish" width="20%">
+						<core:Item key="Code" text="Code"/>
+						<core:Item key="Name" text="Name"/>
+						<core:Item key="Plant" text="Plant"/>
+						<core:Item key="Storage Location" text="Storage Location"/>
+						<core:Item key="Material" text="Material"/>
+						<core:Item key="Amount" text="Amount"/>
+						<core:Item key="StoredDate" text="StoredDate"/>
+						<core:Item key="Status" text="Status"/>
+					</MultiComboBox>
+					<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
+					<Button
+								tooltip="View Filter Settings"
+								icon="sap-icon://filter"
+								press="handleViewSettingsDialogPress" />
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column id="Code"><Text text="Code"/></Column>
+				<Column id="Name"><Text text="Name"/></Column>
+				<Column id="Plant"><Text text="Plant"/></Column>
+				<Column id="StorageLocation"><Text text="Storage Location"/></Column>
+				<Column id="Material"><Text text="Material"/></Column>
+				<Column id="Amount"><Text text="Amount"/></Column>
+				<Column id="StoredDate"><Text text="Stored date"/></Column>
+				<Column id="Status"><Text text="Status"/></Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{warehouse>StockCode}"/>
+						<Text text="{warehouse>Name}"/>
+						<Text text="{warehouse>Plant}"/>
+						<Text text="{warehouse>StorageLocation}"/>
+						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialName'}"/>
+						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialAmount'}"/>
+						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayStoredDate'}"/>
+						<ObjectStatus text="{ path: 'warehouse>Material', formatter: '.formatter.statusText' }"
+							state="{ path: 'warehouse>Material', formatter: '.formatter.statusState' }"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Page>
+</mvc:View>

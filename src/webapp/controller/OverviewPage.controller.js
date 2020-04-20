@@ -1,17 +1,22 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"Team2/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"../model/formatter"
-], function (Controller, JSONModel, formatter) {
+	"../model/formatter",
+	"sap/ui/core/UIComponent"
+], function (BaseController, JSONModel, formatter, UIComponent) {
 	"use strict";
 	
-	return Controller.extend("Team2.controller.OverviewPage", {
+	return BaseController.extend("Team2.controller.OverviewPage", {
 		formatter:formatter,
 		onInit: function () {
 		
 		},
-		onNavTo: function(oEvent){
-			
+		onNavToMaterial: function(oEvent){
+			this.getRouter().navTo("manageMaterial");
+		},
+		
+		onNavToStock: function(oEvent){
+			this.getRouter().navTo("manageStock");
 		}
 			
 	});
