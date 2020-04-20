@@ -10,7 +10,7 @@ sap.ui.define([
 			for(var i =0; i< oMaterial.length; i++){
 				sum+=oMaterial[i].Amount;
 			}
-			if(sum==0)
+			if(sum===0)
 				sStatus=1;
 			else
 				sStatus=2;

@@ -1,9 +1,11 @@
 <mvc:View controllerName="Team2.controller.ManageStock" xmlns="sap.m" displayBlock="true" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form">
+	xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar">
 	<Page title="{i18n>headerManageStock}">
 		<Table id="stocksTable" items="{warehouse>/Stocks}">
 			<headerToolbar>
 				<Toolbar>
+					
 					<ToolbarSpacer/>
 					<SearchField id="searchField" search=".onSearchTable" width="30%"/>
 					<MultiComboBox placeholder="Select Hide Column" selectionFinish="handleSelectionFinish" width="20%">
@@ -20,7 +22,7 @@
 					<Button
 								tooltip="View Filter Settings"
 								icon="sap-icon://filter"
-								press="handleViewSettingsDialogPress" />
+								press="handleViewSettingsDialogPress"/>
 				</Toolbar>
 			</headerToolbar>
 			<columns>

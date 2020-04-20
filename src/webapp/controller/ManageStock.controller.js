@@ -8,7 +8,7 @@ sap.ui.define([
 	"sap/m/ViewSettingsDialog",
 	"sap/m/ViewSettingsItem",
 	'sap/m/MessageToast',
-	"../model/formatter",
+	"../model/formatter"
 ], function (BaseController, JSONModel, Filter, FilterOperator, Fragment, UIComponent, ViewSettingsDialog, ViewSettingsItem, MessageToast, formatter) {
 	"use strict";
 
@@ -82,11 +82,11 @@ sap.ui.define([
 				aFilter.push(new Filter("Name", FilterOperator.Contains, sQuery));
 			}
 
-			// // filter binding
-			// var oTable = this.byId("stocksTable");
-			// var oBinding = oTable.getBinding("items");
-			// oBinding.filter(aFilter);
-			MessageToast.show("From date " + this.fromDate + " To date is " + this.toDate);
+			// filter binding
+			var oTable = this.byId("stocksTable");
+			var oBinding = oTable.getBinding("items");
+			oBinding.filter(aFilter);
+			//MessageToast.show("From date " + this.fromDate + " To date is " + this.toDate);
 		},
 		
 		onExit : function () {
@@ -125,19 +125,31 @@ sap.ui.define([
 
 		handleConfirm: function (oEvent) {
 			// build filter array
-			// var aFilter = [];
+			var aFilter =[]; 
 			// if (this.fromDate) {
-			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.GE , this.fromDate));
+			// 	aFilter.push(new Filter("Material", FilterOperator.Contains, "material", new Filter({
+			// 		path: "material/StoredDate",
+			// 		operator: FilterOperator.GT,
+			// 		value1: this.fromDate
+			// 	})
+			// 	));
 			// }
-
 			// if (this.toDate) {
-			// 	aFilter.push(new Filter("Material>/StoredDate", FilterOperator.LE , this.toDate));
+				aFilter.push(new Filter("Material", FilterOperator.GT, this.fromDate.getvalue));
 			// }
-
-			// // filter binding
-			// var oTable = this.byId("stocksTable");
-			// var oBinding = oTable.getBinding("items");
-			// oBinding.filter(aFilter);
+			// if(this.fromDate && this.toDate)
+			// 	aFilter.push(new Filter("Material", FilterOperator.All, "StoredDate", this.fromDate, this.toDate));
+			// 	aFilter.push(new Filter("Material", FilterOperator.Contains, "Material", new Filter({
+			// 		path: "Material/StoredDate",
+			// 		operator: FilterOperator.BT,
+			// 		value1: this.fromDate,
+			// 		value2: this.toDate
+			// 	})
+			// 	));
+			// filter binding
+			var oTable = this.byId("stocksTable");
+			var oBinding = oTable.getBinding("items");
+			oBinding.filter(aFilter);
 			MessageToast.show("From date " + this.fromDate + " To date is " + this.toDate);
 		},
 
