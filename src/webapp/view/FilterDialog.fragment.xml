@@ -10,9 +10,9 @@
 				<content>
 					<Panel height="386px">
 						<Label text="From Date" design="Bold"/>
-						<DatePicker id="fromDate" change="onFromChange"/>
+						<DatePicker id="fromDate" change="onFromChange" valueFormat="yyyy-MM-dd"/>
 						<Label text="To Date" design="Bold"/>
-						<DatePicker id="toDate" change="onToChange"/>
+						<DatePicker id="toDate" change="onToChange" valueFormat="yyyy-MM-dd"/>
 					</Panel>
 				</content>
 			</ViewSettingsCustomTab>

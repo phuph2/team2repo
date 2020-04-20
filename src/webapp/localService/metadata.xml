@@ -26,6 +26,7 @@
                 <Property Name="Name" Type="Edm.String" Nullable="false" />
                 <Property Name="Plant" Type="Edm.String" Nullable="true" />
                 <Property Name="StorageLocation" Type="Edm.String" Nullable="false"/>
+                <Property Name="StoredDate" Type="Edm.Date" Nullable="false"/>
             </EntityType>
         </Schema>
         <Schema Namespace="ODataWebV2.Warehouse.Model" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">

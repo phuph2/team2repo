@@ -18,8 +18,8 @@ sap.ui.define([
 		toDate: '',
 		
         onInit: function () {
-			var _oODataModel = this.getOwnerComponent().getModel();
-			var oModel = new sap.ui.model.odata.ODataModel("/", true);
+			// var _oODataModel = this.getOwnerComponent().getModel();
+			// var oModel = new sap.ui.model.odata.ODataModel("/", true);
 
 		},
 		handleSelectionFinish: function (oEvent) {
@@ -135,7 +135,7 @@ sap.ui.define([
 			// 	));
 			// }
 			// if (this.toDate) {
-				aFilter.push(new Filter("Material", FilterOperator.GT, this.fromDate.getvalue));
+			aFilter.push(new Filter("StoredDate", FilterOperator.BT, this.fromDate, this.toDate));
 			// }
 			// if(this.fromDate && this.toDate)
 			// 	aFilter.push(new Filter("Material", FilterOperator.All, "StoredDate", this.fromDate, this.toDate));

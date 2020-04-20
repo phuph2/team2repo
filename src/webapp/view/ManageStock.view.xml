@@ -44,7 +44,8 @@
 						<Text text="{warehouse>StorageLocation}"/>
 						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialName'}"/>
 						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialAmount'}"/>
-						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayStoredDate'}"/>
+						<!--<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayStoredDate'}"/>-->
+						<Text text="{warehouse>StoredDate}"/>
 						<ObjectStatus text="{ path: 'warehouse>Material', formatter: '.formatter.statusText' }"
 							state="{ path: 'warehouse>Material', formatter: '.formatter.statusState' }"/>
 					</cells>
