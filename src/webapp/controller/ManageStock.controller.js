@@ -126,11 +126,11 @@ sap.ui.define([
 		handleConfirm: function (oEvent) {
 			// build filter array
 			var aFilter =[]; 
-			if (this.fromDate) {
+			if (this.fromDate && !this.toDate) {
 				aFilter.push(new Filter("StoredDate", FilterOperator.GE, this.fromDate));
 			}
-			else if (this.toDate) {
-				aFilter.push(new Filter("StoredDate", FilterOperator.LE, this.fromDate, this.toDate));
+			else if (this.toDate && !this.fromDate) {
+				aFilter.push(new Filter("StoredDate", FilterOperator.LE, this.toDate));
 			}
 			else if(this.fromDate && this.toDate){
 				if(this.fromDate === this.toDate){
