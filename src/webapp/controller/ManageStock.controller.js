@@ -1,4 +1,3 @@
-
 sap.ui.define([
 	"Team2/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -18,9 +17,6 @@ sap.ui.define([
 		formatter: formatter,
 		fromDate: '',
 		toDate: '',
-		oFragment: {
-			addStock: {}
-		},
 		_oData: {},
 		onInit: function () {
 			// var _oODataModel = this.getOwnerComponent().getModel();
@@ -305,30 +301,41 @@ sap.ui.define([
 			// this.getRouter().navTo("addStock");
 			var oView = this.getView(),
 				that = this;
-			Fragment.load({
-				id: oView.getId(),
-				name: "Team2.Fragments.addStock",
-				controller: that
-			}).then(function (oDialog) {
-				oView.addDependent(oDialog);
-				that.oFragment.addStock = oDialog;
-				that.oFragment.addStock.open();
-			});
+
+			if (!this.dialog) {
+				Fragment.load({
+					id: "idFragment",
+					name: "Team2.Fragments.addStock",
+					controller: that
+				}).then(function (oDialog) {
+					oView.addDependent(oDialog);
+					that.dialog = oDialog;
+					that.dialog.open();
+				});
+				//debugger;
+			} else {
+				this.dialog.open();
+			}
 		},
 		onSubmit: function () {
+
+			var sStock = sap.ui.getCore().byId("idFragment--cb1").getValue(),
+				sMaterials = sap.ui.getCore().byId("idFragment--cb2").getValue(),
+				sAmount = sap.ui.getCore().byId("idFragment--ip1").getValue(),
+				sDate = sap.ui.getCore().byId("idFragment--DP1").getValue();
 			// 
 			var oRecord = {
 				"StockCode": "SC00000",
 				"Name": "Sonic",
-				"Plant": "SEGA",
+				"Plant": sStock,
 				"StorageLocation": "HCM, VN",
-				"StoredDate": "2015-02-18T00:00:00",
+				"StoredDate": sDate,
 				"Material": [{
-					"MaterialCode": "MC00001",
-					"Amount": 0
+					"MaterialCode": sMaterials,
+					"Amount": sAmount
 				}, {
-					"MaterialCode": "MC00002",
-					"Amount": 0
+					"MaterialCode": sMaterials,
+					"Amount": sAmount
 				}]
 			};
 			var oModel = this.getView().getModel(),
@@ -341,7 +348,7 @@ sap.ui.define([
 			this.onClose();
 		},
 		onClose: function () {
-			this.oFragment.addStock.close();
+			this.dialog.close();
 		},
 		// DuyNK11
 		onSearchTable: function (oEvent) {
@@ -395,18 +402,15 @@ sap.ui.define([
 
 		handleConfirm: function (oEvent) {
 			// build filter array
-			var aFilter =[]; 
+			var aFilter = [];
 			if (this.fromDate && !this.toDate) {
 				aFilter.push(new Filter("StoredDate", FilterOperator.GE, this.fromDate));
-			}
-			else if (this.toDate && !this.fromDate) {
+			} else if (this.toDate && !this.fromDate) {
 				aFilter.push(new Filter("StoredDate", FilterOperator.LE, this.toDate));
-			}
-			else if(this.fromDate && this.toDate){
-				if(this.fromDate === this.toDate){
+			} else if (this.fromDate && this.toDate) {
+				if (this.fromDate === this.toDate) {
 					aFilter.push(new Filter("StoredDate", FilterOperator.Contains, this.fromDate));
-				}
-				else{
+				} else {
 					aFilter.push(new Filter("StoredDate", FilterOperator.BT, this.fromDate, this.toDate));
 				}
 			}
@@ -422,6 +426,65 @@ sap.ui.define([
 		handleResetFilters: function () {
 			sap.ui.getCore().byId("fromDate").setValue('');
 			sap.ui.getCore().byId("toDate").setValue('');
+			this.fromDate='';
+			this.toDate='';
+		},
+		handleChange1: function (oEvent) {
+			var oValidatedComboBox = oEvent.getSource(),
+				sSelectedKey = oValidatedComboBox.getSelectedKey(),
+				sValue = oValidatedComboBox.getValue();
+
+			if (sValue === "" || !sSelectedKey) {
+				oValidatedComboBox.setValueState("Error");
+				oValidatedComboBox.setValueStateText("Please enter a valid Stock!");
+
+			} else {
+				oValidatedComboBox.setValueState("Success");
+
+			}
+		},
+
+		handleChange2: function (oEvent) {
+			var oValidatedComboBox = oEvent.getSource(),
+				sSelectedKey = oValidatedComboBox.getSelectedKey(),
+				sValue = oValidatedComboBox.getValue();
+
+			if (sValue === "" || !sSelectedKey) {
+				oValidatedComboBox.setValueState("Error");
+				oValidatedComboBox.setValueStateText("Please enter a valid Material!");
+
+			} else {
+				oValidatedComboBox.setValueState("Success");
+
+			}
+		},
+
+		handleChange3: function (oEvent) {
+			var oValidatedDatePicker = oEvent.getSource();
+			var bValid = oEvent.getParameter("valid");
+
+			if (!bValid) {
+				oValidatedDatePicker.setValueState("Error");
+				oValidatedDatePicker.setValueStateText("Please enter a valid Date!");
+
+			} else {
+				oValidatedDatePicker.setValueState("Success");
+
+			}
+		},
+
+		handleUserInput: function (oEvent) {
+			var sUserInput = oEvent.getParameter("value");
+			var oInputControl = oEvent.getSource();
+			if (!sUserInput.match(/^\d+/)) {
+				oInputControl.setValueState(sap.ui.core.ValueState.Error);
+				oInputControl.setValueStateText("Please enter a valid Amount!");
+
+			} else {
+				oInputControl.setValueState(sap.ui.core.ValueState.Success);
+
+			}
 		}
+
 	});
 });
