@@ -1,0 +1,46 @@
+<mvc:View
+	controllerName="Team2.controller.ManageMaterial"
+	xmlns="sap.m"
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc">
+		<Page
+		title="{i18n>headerManageMaterial}">
+				<Table 
+					class="sapUiResponsiveMargin"
+					width="auto"
+					id="materialsTable"
+					items="{
+					path : '/Materials',
+						sorter : {
+							path : 'Name'
+			}}">
+					<headerToolbar>
+						<Toolbar>
+							<ToolbarSpacer />
+							<SearchField id="searchField" search=".onSearchTable" width="50%"/>
+							<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Material"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="Code"/></Column>
+						<Column><Text text="Name"/></Column>
+						<Column><Text text="Type"/></Column>
+						<Column><Text text="Price"/></Column>
+						<Column><Text text="Base Unit"/></Column>
+						<Column><Text text="Description"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{MaterialCode}"/>
+								<Text text="{Name}"/>
+								<Text text="{Type}"/>
+								<Text text="{Price}"/>
+								<Text text="{BaseUnit}"/>
+								<Text text="{Description}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+	</Page>
+</mvc:View>

@@ -1,0 +1,239 @@
+[  
+	{
+    "StockCode": "SC00001",
+    "Name": "Stock Q8",
+    "Plant": "Plant Q8",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2015-02-18T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 0
+        },{
+        "MaterialCode": "MC00002",
+        "Amount": 0
+    	}]
+	},
+	{
+    "StockCode": "SC00002",
+    "Name": "Stock TH",
+    "Plant": "Plant TH",
+    "StorageLocation": "TH, VN",
+    "StoredDate": "2020-10-25T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 200
+        },{
+        "MaterialCode": "MC00003",
+        "Amount": 78
+    	},{
+        "MaterialCode": "MC00008",
+        "Amount": 100
+    	}]
+	},
+	{
+    "StockCode": "SC00003",
+    "Name": "Stock VT",
+    "Plant": "Plant VT",
+    "StorageLocation": "VT, VN",
+    "StoredDate": "2018-12-08T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00006",
+        "Amount": 0
+        }]
+	},
+	{
+    "StockCode": "SC00004",
+    "Name": "Stock Q8",
+    "Plant": "Plant Q8",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2015-02-18T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 200
+        },{
+        "MaterialCode": "MC00002",
+        "Amount": 121
+    	}]
+	},
+	{
+    "StockCode": "SC00005",
+    "Name": "Stock BH",
+    "Plant": "Plant BH",
+    "StorageLocation": "DN, VN",
+    "StoredDate": "2020-01-18T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00002",
+        "Amount": 121
+        },{
+        "MaterialCode": "MC00004",
+        "Amount": 60
+    	},{
+        "MaterialCode": "MC00005",
+        "Amount": 78
+    	},{
+        "MaterialCode": "MC00006",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00007",
+        "Amount": 90
+    	},{
+        "MaterialCode": "MC00008",
+        "Amount": 20
+    	},{
+        "MaterialCode": "MC00009",
+        "Amount": 30
+    	}]
+	},
+	{
+    "StockCode": "SC00006",
+    "Name": "Stock DN",
+    "Plant": "Plant DN",
+    "StorageLocation": "DN, VN",
+    "StoredDate": "2019-08-18T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 121
+        },{
+        "MaterialCode": "MC00003",
+        "Amount": 80
+    	},{
+        "MaterialCode": "MC00005",
+        "Amount": 78
+    	},{
+        "MaterialCode": "MC00006",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00007",
+        "Amount": 90
+    	}]
+	},
+	{
+    "StockCode": "SC00007",
+    "Name": "Stock TB",
+    "Plant": "Plant TB",
+    "StorageLocation": "TB, VN",
+    "StoredDate": "2019-12-01T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 100
+        },{
+        "MaterialCode": "MC00002",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00003",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00004",
+        "Amount": 88
+    	}]
+	},
+	{
+    "StockCode": "SC00008",
+    "Name": "Stock HN",
+    "Plant": "Plant HN",
+    "StorageLocation": "HN, VN",
+    "StoredDate": "2020-01-01T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC000010",
+        "Amount": 100
+        },{
+        "MaterialCode": "MC00007",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00008",
+        "Amount": 88
+    	},{
+        "MaterialCode": "MC00009",
+        "Amount": 88
+    	}]
+	},
+	{
+    "StockCode": "SC00009",
+    "Name": "Stock Q2",
+    "Plant": "Plant Q2",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2020-01-01T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC000010",
+        "Amount": 0
+        },{
+        "MaterialCode": "MC00007",
+        "Amount": 0
+    	}]
+	},
+	{
+    "StockCode": "SC000010",
+    "Name": "Stock Q1",
+    "Plant": "Plant Q1",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2020-03-18T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 100
+        },{
+        "MaterialCode": "MC00002",
+        "Amount": 100
+        },{
+        "MaterialCode": "MC00004",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00005",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00006",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00007",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00008",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00009",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC000010",
+        "Amount": 100
+    	}]
+	},
+	{
+    "StockCode": "SC000011",
+    "Name": "Stock Q3",
+    "Plant": "Plant Q3",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2020-01-10T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00003",
+        "Amount": 80
+        },{
+        "MaterialCode": "MC00005",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00007",
+        "Amount": 50
+        },{
+        "MaterialCode": "MC00009",
+        "Amount": 30
+        }]
+	},
+	{
+    "StockCode": "SC000012",
+    "Name": "Stock Q2",
+    "Plant": "Plant Q2",
+    "StorageLocation": "HCM, VN",
+    "StoredDate": "2020-04-10T00:00:00",
+    "Material": [{
+        "MaterialCode": "MC00001",
+        "Amount": 100
+        },{
+        "MaterialCode": "MC00002",
+        "Amount": 100
+    	},{
+        "MaterialCode": "MC00004",
+        "Amount": 125
+        },{
+        "MaterialCode": "MC00006",
+        "Amount": 130
+        }]
+	}
+ ]

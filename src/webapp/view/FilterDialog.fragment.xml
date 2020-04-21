@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		cancel="handleCancel"
+		resetFilters="handleResetFilters"
+		confirm="handleConfirm">
+		<customTabs>
+			<ViewSettingsCustomTab id="app-settings" icon="sap-icon://action-settings" title="Settings" tooltip="Application Settings">
+				<content>
+					<Panel height="386px">
+						<Label text="From Date" design="Bold"/>
+						<DatePicker id="fromDate" change="onFromChange" valueFormat="yyyy-MM-dd"/>
+						<Label text="To Date" design="Bold"/>
+						<DatePicker id="toDate" change="onToChange" valueFormat="yyyy-MM-dd"/>
+					</Panel>
+				</content>
+			</ViewSettingsCustomTab>
+		</customTabs>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
