@@ -10,7 +10,7 @@
 					width="auto"
 					id="materialsTable"
 					items="{
-					path : 'warehouse>/Materials',
+					path : '/Materials',
 						sorter : {
 							path : 'Name'
 			}}">
@@ -32,12 +32,12 @@
 					<items>
 						<ColumnListItem>
 							<cells>
-								<Text text="{warehouse>MaterialCode}"/>
-								<Text text="{warehouse>Name}"/>
-								<Text text="{warehouse>Type}"/>
-								<Text text="{warehouse>Price}"/>
-								<Text text="{warehouse>BaseUnit}"/>
-								<Text text="{warehouse>Description}"/>
+								<Text text="{MaterialCode}"/>
+								<Text text="{Name}"/>
+								<Text text="{Type}"/>
+								<Text text="{Price}"/>
+								<Text text="{BaseUnit}"/>
+								<Text text="{Description}"/>
 							</cells>
 						</ColumnListItem>
 					</items>
