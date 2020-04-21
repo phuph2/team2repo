@@ -2,10 +2,9 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form"
 	xmlns:fb="sap.ui.comp.filterbar">
 	<Page title="{i18n>headerManageStock}">
-		<Table id="stocksTable" items="{warehouse>/Stocks}">
+		<Table id="stocksTable" items="{/Stocks}">
 			<headerToolbar>
 				<Toolbar>
-					
 					<ToolbarSpacer/>
 					<SearchField id="searchField" search=".onSearchTable" width="30%"/>
 					<MultiComboBox placeholder="Select Hide Column" selectionFinish="handleSelectionFinish" width="20%">
@@ -19,10 +18,7 @@
 						<core:Item key="Status" text="Status"/>
 					</MultiComboBox>
 					<Button icon="sap-icon://add" press=".onAddButtonPressed" text="Add Stock"/>
-					<Button
-								tooltip="View Filter Settings"
-								icon="sap-icon://filter"
-								press="handleViewSettingsDialogPress"/>
+					<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleViewSettingsDialogPress"/>
 				</Toolbar>
 			</headerToolbar>
 			<columns>
@@ -38,16 +34,16 @@
 			<items>
 				<ColumnListItem>
 					<cells>
-						<Text text="{warehouse>StockCode}"/>
-						<Text text="{warehouse>Name}"/>
-						<Text text="{warehouse>Plant}"/>
-						<Text text="{warehouse>StorageLocation}"/>
-						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialName'}"/>
-						<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialAmount'}"/>
-						<!--<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayStoredDate'}"/>-->
-						<Text text="{warehouse>StoredDate}"/>
-						<ObjectStatus text="{ path: 'warehouse>Material', formatter: '.formatter.statusText' }"
-							state="{ path: 'warehouse>Material', formatter: '.formatter.statusState' }"/>
+						<Text text="{StockCode}"/>
+						<Text text="{Name}"/>
+						<Text text="{Plant}"/>
+						<Text text="{StorageLocation}"/>
+						<!--<Text text="{path: 'warehouse>Material', formatter: '.formatter.displayMaterialName'}"/>-->
+						<Text text="{path: 'Material', formatter: '.formatter.displayMaterialName'}"/>
+						<Text text="{path: 'Material', formatter: '.formatter.displayMaterialAmount'}"/>
+						<Text text="{path: 'StoredDate'}"/>
+						<ObjectStatus text="{ path: 'Material', formatter: '.formatter.statusText' }"
+							state="{ path: 'Material', formatter: '.formatter.statusState' }"/>
 					</cells>
 				</ColumnListItem>
 			</items>

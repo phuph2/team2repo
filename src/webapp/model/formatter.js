@@ -4,7 +4,7 @@ sap.ui.define([
 	"use strict";
 	return {
 		statusText: function (oMaterial) {
-			var resourceBundle = this.getView().getModel("i18n").getResourceBundle();
+			//var resourceBundle = this.getView().getModel("i18n").getResourceBundle();
 			var sStatus;
 			var sum=0;
 			for(var i =0; i< oMaterial.length; i++){
@@ -16,9 +16,11 @@ sap.ui.define([
 				sStatus=2;
 			switch (sStatus) {
 				case 1:
-					return resourceBundle.getText("invoiceStatusOOS");
+					//return resourceBundle.getText("invoiceStatusOOS");
+					return "Out of Stock";
 				case 2:
-					return resourceBundle.getText("invoiceStatusIS");
+					//return resourceBundle.getText("invoiceStatusIS");
+					return "In Stock";
 				default:
 					return sStatus;
 			}
