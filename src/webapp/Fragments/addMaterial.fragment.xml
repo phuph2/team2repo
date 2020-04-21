@@ -1,25 +1,28 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
 	<Dialog title="addMaterial" >
-		<content>
-			<VBox >
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" >
+		<l:content>
+			<form:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="Address" labelSpanL="3"
+					labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2">
 				<Label text="Code" labelFor="fieldCode"/>
-				<Input id="fieldCode" required="true" width="50%" change="onChangInput"/>
+				<Input id="fieldCode" required="true"   change="onChangInput"/>
 				<Label text="Name" labelFor="fieldName"/>
-				<Input id="fieldName" required="true" width="50%" change="onChangInput"/>
+				<Input id="idName" required="true"  change="onChangInput"/>
 				<Label text="Type" labelFor="fieldType"/>
-				<ComboBox id="cboType" required="true" width="50%"  items="{path: 'warehouse>/Materials', sorter: {path: 'Type'}}" change="onChangComboBox">
+				<ComboBox id="idType" required="true"   items="{path: 'warehouse>/Materials', sorter: {path: 'Type'}}" change="onChangComboBox">
 					<core:Item key="{warehouse>Type}" text="{warehouse>Type}"/>
 				</ComboBox>
 				<Label text="Price" labelFor="fieldPrice"/>
-				<Input id="fieldPrice" required="true" width="50%" liveChange="onChangInputNumber"/>
+				<Input id="idPrice" required="true"  liveChange="onChangInputNumber"/>
 				<Label text="BaseUnit" labelFor="fieldBaseUnit"/>
-				<ComboBox id="base" required="false" width="50%" items="{ path: 'warehouse>/Materials', sorter: {path: 'BaseUnit'}}">
+				<ComboBox id="idBase" required="false"  items="{ path: 'warehouse>/Materials', sorter: {path: 'BaseUnit'}}">
 					<core:Item key="{warehouse>BaseUnit}" text="{warehouse>BaseUnit}"/>
 				</ComboBox>
 				<Label text="Description" labelFor="fieldDescription"/>
-				<TextArea id="fieldDescription" required="false" width="50%"/>
-			</VBox>
-		</content>
+				<TextArea id="idDescription" required="false" />
+			</form:SimpleForm>
+		</l:content>
+		</l:Grid>
 		<beginButton>
 			<Button text="Submit" press="onSubmit"/>
 		</beginButton>

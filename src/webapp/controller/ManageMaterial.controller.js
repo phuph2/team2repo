@@ -91,8 +91,9 @@ sap.ui.define([
     		//this.getRouter().navTo("addMaterial");
     		var oView = this.getView(),
 				that = this;
-			Fragment.load({
-				id: oView.getId(),
+				if(!this.dialog){
+				Fragment.load({
+				id: "idFragmentAddMaterial",
 				name: "Team2.Fragments.addMaterial",
 				controller: that
 			}).then(function (oDialog) {
@@ -100,15 +101,22 @@ sap.ui.define([
 				that.oFragment.addMaterial = oDialog;
 				that.oFragment.addMaterial.open();
 			});
+			}else{
+				this.dialog.open();
+			}
     	},
     	onSubmit: function(){
+    		var sName = sap.ui.getCore().byId("idFragmentAddMaterial--idName").getValue(),
+    			sType = sap.ui.getCore().byId("idFragmentAddMaterial--idType").getValue(),
+    			sPrice = sap.ui.getCore().byId("idFragmentAddMaterial--idPrice").getValue(),
+    			sDescription = sap.ui.getCore().byId("idFragmentAddMaterial--idDescription").getValue();
     		var oRecord = {
-					"MaterialCode": "MC00000",
-					"Name": "Iphone XS Max",
-					"Type": "SmartPhone",
-					"Price": 10000,
+					"MaterialCode": "MC" + parseInt(Math.random() * 1000000, 10),
+					"Name": sName,
+					"Type": sType,
+					"Price": sPrice,
 					"BaseUnit": "USD",
-					"Description": "iPhone XS Max 64GB chính hãng"
+					"Description": sDescription
     		};
     		var oModel = this.getView().getModel(),
 				localdata = oModel.getProperty("/Materials");
