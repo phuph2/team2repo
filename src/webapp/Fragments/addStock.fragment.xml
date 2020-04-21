@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
-	<Dialog title="add">
-		<l:Grid defaultSpan="L12 M12 S12" width="auto">
-			<l:content>
-				<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="Address" labelSpanL="3"
-					labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2">
-					<f:content>
-						<Label text="Stock" labelFor="comboBoxStock"/>
-						<ComboBox id="cb1" required="true" items="{ path: 'warehouse>/Stocks', sorter: { path: 'Name' } }" change="handleChange1">
-							<core:Item key="{warehouse>StockCode}" text="{warehouse>Name}"/>
-						</ComboBox>
-						<Label text="Material" labelFor="comboBoxMaterial"/>
-						<ComboBox id="cb2" required="true" items="{ path: 'warehouse>/Materials', sorter: { path: 'Name' } }" change="handleChange2">
-							<core:Item key="{warehouse>MaterialCode}" text="{warehouse>MaterialCode}"/>
-						</ComboBox>
-						<Label text="Amount" labelFor="amountInput"/>
-						<Input id="ip1" type="Number" required="true" value="" liveChange="handleUserInput"/>
-						<Label required="true" text="Stored date" labelFor="storedDateStock"/>
-						<DatePicker id="DP1" change="handleChange3"/>
-					</f:content>
-				</f:SimpleForm>
-			</l:content>
-		</l:Grid>
-=======
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<Dialog title="add" >
 		<content>
@@ -41,7 +16,6 @@
 				<DatePicker change="handleChange3"/>
 			</VBox>
 		</content>
->>>>>>> refs/remotes/origin/master
 		<beginButton>
 			<Button text="Submit" press="onSubmit"/>
 		</beginButton>
