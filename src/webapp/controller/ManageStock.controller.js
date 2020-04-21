@@ -1,3 +1,4 @@
+
 sap.ui.define([
 	"Team2/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -422,6 +423,5 @@ sap.ui.define([
 			sap.ui.getCore().byId("fromDate").setValue('');
 			sap.ui.getCore().byId("toDate").setValue('');
 		}
-
 	});
 });
